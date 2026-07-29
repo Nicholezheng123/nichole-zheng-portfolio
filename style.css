@@ -164,13 +164,12 @@ strong { font-weight: 700; }
 }
 
 .hero-name {
-  font-size: clamp(56px, 12vw, 104px);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 1.0;
+  font-size: clamp(52px, 10vw, 88px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
   color: var(--text);
-  /* Match the rounded heavy font from the screenshot */
-  font-family: "SF Pro Display", -apple-system, "Segoe UI", system-ui, sans-serif;
+  font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
 }
 
 .hero-tagline {
@@ -182,10 +181,11 @@ strong { font-weight: 700; }
 }
 
 .hero-sub {
-  font-size: 16px;
+  font-size: 18px;
   color: var(--muted);
-  max-width: 420px;
-  line-height: 1.7;
+  max-width: 600px;
+  line-height: 1.6;
+  white-space: nowrap;
 }
 
 .icon-row {
@@ -542,5 +542,6 @@ strong { font-weight: 700; }
   .project-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
   .hero-name { font-size: 52px; }
+  .hero-sub { white-space: normal; font-size: 16px; }
   .section { padding: 64px 20px; }
 }
