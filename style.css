@@ -164,7 +164,7 @@ strong { font-weight: 700; }
 }
 
 .hero-name {
-  font-size: clamp(64px, 12vw, 108px);
+  font-size: clamp(48px, 9vw, 82px);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.0;
@@ -173,7 +173,7 @@ strong { font-weight: 700; }
 }
 
 .hero-tagline {
-  font-size: 26px;
+  font-size: 21px;
   font-weight: 300;
   color: var(--muted);
   letter-spacing: 0.005em;
