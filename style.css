@@ -357,6 +357,28 @@ strong { font-weight: 700; }
   line-height: 1.2;
 }
 
+/* IBM card background */
+.ibm-card-img {
+  background: linear-gradient(135deg, #0f62fe 0%, #0043ce 100%) !important;
+}
+
+.ibm-thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+}
+
+.ibm-internship-label {
+  color: rgba(255,255,255,0.82);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 /* GitHub badge — top-right of image */
 .card-gh-btn {
   position: absolute;
