@@ -26,6 +26,7 @@
   var details   = document.getElementById('modalDetails');
   var tagsEl    = document.getElementById('modalTags');
   var ghBtn     = document.getElementById('modalGithubBtn');
+  var liveBtn   = document.getElementById('modalLiveBtn');
   var closeBtn  = document.getElementById('modalClose');
 
   function openModal(card) {
@@ -70,6 +71,15 @@
       ghBtn.style.display = 'inline-flex';
     } else {
       ghBtn.style.display = 'none';
+    }
+
+    // ── live project link ──
+    var liveLink = card.dataset.link;
+    if (liveLink) {
+      liveBtn.href = liveLink;
+      liveBtn.style.display = 'inline-flex';
+    } else {
+      liveBtn.style.display = 'none';
     }
 
     backdrop.classList.add('open');
