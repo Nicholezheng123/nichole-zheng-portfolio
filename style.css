@@ -4,15 +4,15 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #f0ece5;
-  --surface: #e8e3da;
+  --bg: #F5F1ED;
+  --surface: #E8E4DF;
   --card: #ffffff;
-  --border: #d8d2c9;
-  --text: #1a1612;
-  --muted: #6b6460;
-  --pill-bg: #e2ddd6;
-  --pill-text: #3a3530;
-  --accent: #1a1612;
+  --border: #ddd8d0;
+  --text: #1c1917;
+  --muted: #78716c;
+  --pill-bg: #ede9e3;
+  --pill-text: #44403c;
+  --accent: #1c1917;
   --radius-card: 16px;
   --radius-pill: 999px;
   --font: -apple-system, "Segoe UI", system-ui, sans-serif;
@@ -146,32 +146,46 @@ strong { font-weight: 700; }
 }
 
 .logo-wrap {
-  margin: 4px 0;
+  margin: 8px 0 4px;
 }
+.logo-img {
+  width: 128px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  display: block;
+}
+
+/* Fallback SVG monogram (shown when no logo image) */
 .logo-svg {
-  width: 120px;
-  height: 80px;
+  width: 128px;
+  height: 86px;
 }
 
 .hero-name {
-  font-size: clamp(52px, 10vw, 96px);
+  font-size: clamp(56px, 12vw, 104px);
   font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
   color: var(--text);
+  /* Match the rounded heavy font from the screenshot */
+  font-family: "SF Pro Display", -apple-system, "Segoe UI", system-ui, sans-serif;
 }
 
 .hero-tagline {
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--text);
-  letter-spacing: 0.01em;
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.005em;
+  margin-top: -4px;
 }
 
 .hero-sub {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--muted);
-  max-width: 380px;
+  max-width: 420px;
+  line-height: 1.7;
 }
 
 .icon-row {
@@ -181,8 +195,8 @@ strong { font-weight: 700; }
 }
 
 .icon-btn {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: var(--pill-bg);
   border: 1px solid var(--border);
@@ -198,11 +212,11 @@ strong { font-weight: 700; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  margin-top: 16px;
+  gap: 8px;
+  margin-top: 32px;
   color: var(--muted);
   font-size: 11px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
   transition: color 0.2s;
@@ -426,45 +440,87 @@ strong { font-weight: 700; }
 /* ============================================
    Contact
    ============================================ */
-.contact { background: var(--surface); }
+.contact {
+  background: var(--surface);
+  text-align: center;
+}
 
-.contact-row {
+.contact-cta-row {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
+/* Dark filled CTA buttons — matching screenshot */
 .contact-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text);
-  transition: background 0.2s, border-color 0.2s;
-}
-.contact-btn:hover {
+  gap: 10px;
+  padding: 16px 32px;
   background: var(--text);
   color: #fff;
-  border-color: var(--text);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
 }
-.contact-btn:hover svg { stroke: #fff; }
+.contact-btn:hover { opacity: 0.82; }
+.contact-btn svg { flex-shrink: 0; stroke: #fff; }
+
+/* Info cards row */
+.contact-info-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.contact-info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 28px 28px 24px;
+  text-align: left;
+}
+.contact-info-card svg {
+  color: var(--text);
+  margin-bottom: 14px;
+  display: block;
+}
+.contact-info-card .ci-label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.contact-info-card .ci-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
 
 /* ============================================
    Footer
    ============================================ */
 .site-footer {
-  text-align: center;
-  padding: 32px 24px;
-  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 48px;
+  font-size: 13px;
   color: var(--muted);
   border-top: 1px solid var(--border);
-  background: var(--bg);
+  background: var(--surface);
+}
+
+@media (max-width: 600px) {
+  .site-footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px 20px; }
+  .contact-info-cards { grid-template-columns: 1fr; }
 }
 
 /* ============================================
