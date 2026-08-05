@@ -2,6 +2,43 @@
   'use strict';
 
   /* ─────────────────────────────────────────
+     Cycling tagline
+  ───────────────────────────────────────── */
+  var words = [
+    'Data Analyst',
+    'Researcher',
+    'Builder',
+    'Traveler',
+    'Photographer',
+    'Rock Climber',
+    'Badminton Player',
+    'Problem Solver'
+  ];
+  var wordEl = document.getElementById('cyclingWord');
+  var current = 0;
+
+  function cycleWord() {
+    // fade out
+    wordEl.classList.add('fade-out');
+    wordEl.classList.remove('fade-in');
+
+    setTimeout(function () {
+      current = (current + 1) % words.length;
+      wordEl.textContent = words[current];
+
+      // fade in
+      wordEl.classList.remove('fade-out');
+      wordEl.classList.add('fade-in');
+    }, 380); // wait for fade-out to finish
+  }
+
+  // Start cycling after a short initial pause
+  setTimeout(function () {
+    wordEl.classList.add('fade-in');
+    setInterval(cycleWord, 2600);
+  }, 1200);
+
+  /* ─────────────────────────────────────────
      Scroll-reveal
   ───────────────────────────────────────── */
   var revealObserver = new IntersectionObserver(

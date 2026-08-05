@@ -178,6 +178,32 @@ strong { font-weight: 700; }
   color: var(--muted);
   letter-spacing: 0.005em;
   margin-top: -4px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0;
+}
+
+.tagline-prefix {
+  font-weight: 300;
+  color: var(--muted);
+}
+
+#cyclingWord {
+  display: inline-block;
+  font-weight: 500;
+  color: var(--text);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+#cyclingWord.fade-out {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+#cyclingWord.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero-sub {
