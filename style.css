@@ -193,17 +193,9 @@ strong { font-weight: 700; }
   display: inline-block;
   font-weight: 500;
   color: var(--text);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-#cyclingWord.fade-out {
-  opacity: 0;
-  transform: translateY(-8px);
-}
-
-#cyclingWord.fade-in {
   opacity: 1;
   transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .hero-sub {

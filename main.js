@@ -16,27 +16,36 @@
   ];
   var wordEl = document.getElementById('cyclingWord');
   var current = 0;
+  var INTERVAL = 2600;   // ms between changes
+  var FADE_MS  = 350;    // must match CSS transition duration
 
   function cycleWord() {
-    // fade out
-    wordEl.classList.add('fade-out');
-    wordEl.classList.remove('fade-in');
+    // Step 1 — fade out by setting opacity to 0
+    wordEl.style.opacity  = '0';
+    wordEl.style.transform = 'translateY(-10px)';
 
     setTimeout(function () {
+      // Step 2 — swap text while invisible
       current = (current + 1) % words.length;
       wordEl.textContent = words[current];
 
-      // fade in
-      wordEl.classList.remove('fade-out');
-      wordEl.classList.add('fade-in');
-    }, 380); // wait for fade-out to finish
+      // move below so it rises up on fade-in
+      wordEl.style.transform = 'translateY(10px)';
+
+      // Step 3 — force a reflow so the browser registers the new transform
+      void wordEl.offsetWidth;
+
+      // Step 4 — fade back in
+      wordEl.style.opacity  = '1';
+      wordEl.style.transform = 'translateY(0)';
+    }, FADE_MS);
   }
 
-  // Start cycling after a short initial pause
-  setTimeout(function () {
-    wordEl.classList.add('fade-in');
-    setInterval(cycleWord, 2600);
-  }, 1200);
+  // Set initial visible state
+  wordEl.style.opacity   = '1';
+  wordEl.style.transform = 'translateY(0)';
+
+  setInterval(cycleWord, INTERVAL);
 
   /* ─────────────────────────────────────────
      Scroll-reveal
